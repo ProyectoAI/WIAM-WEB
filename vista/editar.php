@@ -1,13 +1,14 @@
 <?php
  
 
+require_once "../controlador/controlador.usuarios.php";
 
-if(isset($_GET["idusuarios"])){
+if(isset($_GET["id"])){
 
 	
-	$datos = $_GET["idusuarios"];
+	$datos = $_GET["id"];
 
-	$usuario = ControladorUsuarios::contrConsultaUsuario($datos);
+	$usuarios = ControladorUsuarios::contrConsultaUsuario($datos);
     
 
 }
@@ -33,11 +34,7 @@ if(isset($_GET["idusuarios"])){
   <form id="frmAgregar" role="form" method="POST" enctype="multipart/form-data">
 
   <h1 class="bg-info text-center">Edición</h1>
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="idusuarios" placeholder="Idusuarios" required value="<?php echo $usuarios["idusuarios"]; ?>">
-
-    </div>
+    
     <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-default">NOMBRE</span>
       <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nombre" placeholder="Nombre" required value="<?php echo $usuarios["nombre"]; ?>">
@@ -53,8 +50,8 @@ if(isset($_GET["idusuarios"])){
     <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-default">CONTRASEÑA</span>
       <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="pass" placeholder="Pass">
-      <input type="hidden" name="claveActual" value="<?php echo $usuarios["pass"]; ?>">
-      <input type="hidden" value="<?php echo $usuarios["idusuarios"]; ?>" name="idusuarios">
+      <input type="hidden" name="passactual" value="<?php echo $usuarios["pass"]; ?>">
+      <input type="hidden" value="<?php echo $usuarios["idusuarios"]; ?>" name="id">
     </div>
     
     <?php

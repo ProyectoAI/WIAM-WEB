@@ -31,49 +31,99 @@ if (isset($_POST["ingresar"])) {   //Se activa cuando el usuario da clic en el b
 
 ?>
 
-<html>
 <head>
-  <title>Registro de Usuarios</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-</head>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 <body>
-
-
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+            <div class="card-img-left d-none d-md-flex">
+            <form id="frmAgregar" role="form" method="POST" enctype="multipart/form-data">
+              <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body p-4 p-sm-5">
+              <h5 class="card-title text-center mb-5 fw-light fs-5">Registrate</h5>
+              <form>
+  
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInputnombre" name="nombre" placeholder="nombre" required autofocus>
+                  <label for="floatingInputUsername">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInputapellido" name="apellido" placeholder="apellido" required autofocus>
+                    <label for="floatingInputUsername">Apellido</label>
+                  </div>
+  
+                 <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="floatingInputEmail" name="email" placeholder="name@example.com">
+                  <label for="floatingInputEmail">Email</label>
+                </div>
+  
+                <hr>
+  
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPassword" name="pass" placeholder="Contraseña">
+                  <label for="floatingPassword">Contraseña</label>
+                </div>
+  
+                <div class="d-grid mb-2">
+                  <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="ingresar" >Registrar</button>
+                </div>
   
   
-  <div class="d-flex justify-content-center text-center">
+                <a class="d-block text-center mt-2 small" href="http://localhost/wiam/vista/login.php">Tienes una cuenta? Inicia sesión</a>
   
-  <form id="frmAgregar" role="form" method="POST" enctype="multipart/form-data">
-
-  <h1 class="bg-info text-center">Registro</h1>
+                <hr class="my-4">
   
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-default">NOMBRE</span>
-      <input type="text" class="form-control" aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" name="nombre" placeholder="Nombre" required>
+                <div class="d-grid mb-2">
+                  <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
+                    <i class="fab fa-google me-2"></i> Iniciar Sesión con Google
+                  </button>
+                </div>
+  
+                <div class="d-grid">
+                  <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
+                    <i class="fab fa-facebook-f me-2"></i> Iniciar Sesión con Facebook
+                  </button>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-default">APELLIDO</span>
-      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="apellido" placeholder="Apellido" required>
-    </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-default">EMAIL</span>
-      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" placeholder="Email" required>
-    </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-default">CONTRASEÑA</span>
-      <input type="password" class="form-control" aria-label="Sizing example input" 
-      aria-describedby="inputGroup-sizing-default" name="pass" placeholder="Password"required>
-    </div>
+  </body>
+  <style>
+      body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
 
-    <button type="submit" name="ingresar" class="btn btn-info">Guardar</button>
+.card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url('https://as01.epimg.net/meristation/imagenes/2021/02/11/noticias/1613031667_732856_1613031773_noticia_normal.jpg');
+  background-size: cover;
+  height: 604px;
+  width: 512px;
+}
 
-  </form>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
 
-</body>
+.btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
 
-</html>
+.btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
+  </style>

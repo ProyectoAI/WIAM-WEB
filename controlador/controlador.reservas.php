@@ -11,14 +11,13 @@ class ControladorReservas
 			return $respuesta;
 		}
 
-		static public function contrInsertarReservass($datos)
+		// REGISTRO DE RESERVAS
+		static public function contrInsertarReservas($datos)
 		{
-			// 0 = nombre_reservante, 1 = fecha_reserva, 2 = hora_reserva, 3 = N°_mesa_reserva, 4 = N°_ninos, 5 = N°_adultos
-			if(!empty($datos[0])&&!empty($datos[1])&&!empty($datos[2])&&!empty($datos[3])&&!empty($datos[4])&&!empty($datos[5])){
-
+			// 0 = nombre_reservante, 1 = fecha_reserva, 2 = hora_reserva, 3 = N°_mesa_reserva, 4 = N°_ninos, 5 = N°_adultos, 6=telefono
+			if(!empty($datos[0])&&!empty($datos[1])&&!empty($datos[2])&&!empty($datos[3])&&!empty($datos[4])&&!empty($datos[5])&&!empty($datos[6])){
 				
-
-				$datos1=array($datos[0],$datos[1],$datos[2],$datos[3],$datos[4],$datos[5]);
+				$datos1=array($datos[0],$datos[1],$datos[2],$datos[3],$datos[4],$datos[5],$datos[6]);
 
 				$respuesta = ModeloReservas::InsertarReservas($datos1);
 			}else
@@ -34,9 +33,9 @@ class ControladorReservas
 			{
 				$respuesta = ModeloReservas::loginUsuarios($datos);
 				if ($respuesta == FALSE)
-				/*	echo "El usuario o contraseña ingresados no han sido encontrados";
+				/*	echo "El día y hora ya está reservado";
 				else
-					echo "inicio de sesión correcto";*/
+					echo "Su reserva se ha agendado correctamente";*/
 					{
 						echo '<script>
 		
@@ -47,7 +46,7 @@ class ControladorReservas
 							}
 		
 						</script>';
-						echo '<div class="alert alert-danger">Error al ingresar al sistema, el email o la contraseña no coinciden</div>';
+						echo '<div class="alert alert-danger">Error al agendar su reserva</div>';
 					} else
 					{
 						
@@ -61,7 +60,7 @@ class ControladorReservas
 		
 							}
 		
-							window.location = "index.php?pagina=usuarios";
+							window.location = "index.php?pagina=reservas";
 		
 						</script>';
 		
@@ -71,10 +70,7 @@ class ControladorReservas
 			
 
 				
-		}	
-
-
-
+		}
     }
         
 ?>

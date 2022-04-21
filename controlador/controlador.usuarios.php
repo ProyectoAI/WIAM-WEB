@@ -105,15 +105,58 @@ class ControladorUsuarios
 	
 						}
 	
-						window.location = "index.php?pagina=usuarios";
+						window.location = "../vista/usuarios.php";
 	
 					</script>';
 				}
 			}
 		}
 
+public function ctrActualizarUsuario(){
 
-    }
-        
+		if(isset($_POST["nombre"])){
+
+			if($_POST["pass"] != ""){			
+
+				$pass = $_POST["pass"];
+
+			}else{
+
+				$pass = $_POST["passactual"];
+			}
+
+			$datos = array( "id" => $_POST["id"],
+						   "nombre" => $_POST["nombre"],
+						   "apellido" => $_POST["apellido"],
+						   "email" => $_POST["email"],
+						   "pass" => $pass);
+
+			$respuesta = ModeloUsuarios::ActualizarUsuario($datos);
+
+			if($respuesta == "ok"){
+
+				echo '<script>
+	
+				if ( window.history.replaceState ) {
+	
+					window.history.replaceState( null, null, window.location.href );
+	
+				}
+	
+				</script>';
+	
+				echo '<div class="alert alert-success">El usuario ha sido actualizado</div>';
+	
+			}
+
+		}
+
+
+	}
+
+	}	
 ?>
+
+
+
 

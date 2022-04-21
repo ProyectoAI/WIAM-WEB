@@ -1,29 +1,13 @@
 <?php
-$email=$_POST['email'];
-$contraseña=$_POST['pass'];
-
-session_star();
-$_SESSION['email']=$email;
-
-$conexion=mysqli_connect("localhost", "root", "", "wiamweb");
-$sqlconsulta="SELECT * FROM cliente where usuario_cliente ='$email' and contraseña_cliente = '$contraseña'";
-$resultado = mysqli_query($conexion,$sqlconsulta);
-$filas=mysqli_num_rows($resultados);
-if ($filas){
-    echo "<script>alert('Sesión correctamente inicada');</script>";
-    header("location:../pagina/index.php");
-} else {
-    ?>
-    <?php
-     echo "<script>alert('Error al iniciar sesión');</script>";
-     header("location:login.php");
+session_start();
+error_reporting(0);
+$varsesion=$_SESSION['email'];
+if ($varsesion==null||$varsesion=='') {
+    echo "<script>alert('No tiene acceso');</script>";
+    header('location:login.php');
+    die();
 }
-mysqli_free_result($resultado);
-mysqli_class($conexion);
-
-?> 
-
-
+?>
 <?php
 require_once "../controlador/controlador.usuarios.php";
 
@@ -44,6 +28,9 @@ if (empty($usuario)) {
 </head>
 
 <body>
+    <body style="background: url('../mario.jpg') no-repeat; background-size: cover;"> 
+        
+    </body>
     <h1 class="text-center">Lista de Usuarios</h1>
 
     <table class="table table-striped">
@@ -69,7 +56,7 @@ if (empty($usuario)) {
                         <div class="btn-group">
                             <div class="px-1">
 
-                                <a href="editar.php<?php echo $columna["idusuarios"]; ?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="editar.php?id=<?php echo $columna["idusuarios"]; ?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
                                 
 
                             </div>

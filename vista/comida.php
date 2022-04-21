@@ -1,32 +1,95 @@
+<?php
+session_start();
+error_reporting(0);
+$varsesion=$_SESSION['email'];
+if ($varsesion==null||$varsesion=='') {
+    echo "<script>alert('No tiene acceso');</script>";
+    header('location:login.php');
+    die();
+}
+?>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="https://samanthacmpn06.wixsite.com/misitio">"SDK"</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mb-2 mb-lg-0 ms-lg-4 bg-warning" >
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Inicio</a></li>
+                       
+                            <li class="nav-item"><a class="nav-link active" id="navbarDropdown" href="comida.php">Comida</a>
+                          <ul>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/reservas.php">Bebidas</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/registro.php">Hamburguesas</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/salir.php">Postres</a></li>
+                          </ul>
+                          
+                          </li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="reservas.php">Reservas</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="registro.php">Registro</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="salir.php">Salir</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="productos/contenido.php">Añadir</a></li>
+                             
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+</body>
 <!-- Carousel wrapper -->
-<div
-  id="carouselMultiItemExample"
-  class="carousel slide carousel-dark text-center"
-  data-mdb-ride="carousel"
->
-  <!-- Controls -->
-  <div class="d-flex justify-content-center mb-4">
-    <button
-      class="carousel-control-prev position-relative"
-      type="button"
-      data-mdb-target="vista/nextjpg.php"
-      data-mdb-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next position-relative"
-      type="button"
-      data-mdb-target="#carouselMultiItemExample"
-      data-mdb-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
     <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
+<style>
+			
+			#header {
+				margin:auto;
+				width:500px;
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			
+			.navbar-nav li a {
+				color:#fff;
+				text-decoration:none;
+				padding:10px 12px;
+				display:block;
+			}
+			
+			.navbar-nav li a:hover {
+				background-color:orange;
+			}
+			
+			.navbar-nav li ul {
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.navbar-nav li:hover > ul {
+				display:block;
+        left:275px;
+			}
+			
+			.navbar-nav li ul li {
+				position:relative;
+			}
+			
+			.navbar-nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+
+</style>
+  </head>
   </div>
   <!-- Inner -->
   <div class="carousel-inner py-4">

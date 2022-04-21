@@ -14,6 +14,17 @@ class ModeloUsuarios{
 
 			
 		}
+		static public function ConsultaUsuario($datos)
+		{
+			$consulta = Conexion::conectar()->prepare("SELECT * FROM usuarios where idusuarios = :id");
+			$consulta->bindParam(":id", $datos, PDO::PARAM_INT);
+
+			$consulta -> execute();
+
+			return $consulta -> fetch();
+
+			
+		}
 
 	static public function InsertarUsuarios($datos)
 		{
@@ -54,6 +65,30 @@ class ModeloUsuarios{
 		
 	}
 
+    
+	static public function ActualizarUsuario($datos){
+	
+		$consulta = Conexion::conectar()->prepare("UPDATE usuarios SET  nombre=:nombre, apellido=:apellido, email=:email, pass=:pass WHERE idusuarios = :id");
+
+		$consulta->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$consulta->bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
+		$consulta->bindParam(":email", $datos["email"], PDO::PARAM_STR);
+		$consulta->bindParam(":pass", $datos["pass"], PDO::PARAM_STR);
+		$consulta->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+		if($consulta->execute()){
+
+			return "ok";
+
+		}else{
+
+			print_r(Conexion::conectar()->errorInfo());
+
+		}
+
+			
+
+	}
     
 }
 

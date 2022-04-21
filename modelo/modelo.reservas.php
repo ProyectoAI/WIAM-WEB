@@ -14,16 +14,18 @@ class ModeloReservas{
 			
 		}
 
+		// INGRESAR RESERVAS A LA DB
 	static public function InsertarReservas($datos)
 		{
 			//Se debe omitir el id porque la version de mysql 5.7.31 no recomose el null y se nombran todos los campos tal cual esta en la base de datos a excepción de id....
-			$consulta = Conexion::conectar()->prepare("INSERT INTO reservas (nombre_reservante, fecha_reserva, hora_reserva, N°_mesa_reserva, N°_ninos, N°_adultos) VALUES (
+			$consulta = Conexion::conectar()->prepare("INSERT INTO reservas (nombre_reservante, fecha_reserva, hora_reserva, N°_mesa_reserva, N°_ninos, N°_adultos, telefono) VALUES (
 													'$datos[0]',
 													'$datos[1]',
 													'$datos[2]',
 													'$datos[3]',
                                                     '$datos[4]',
-													'$datos[5]'
+													'$datos[5]',
+													'$datos[6]'
 	
 												   )");
 

@@ -1,25 +1,3 @@
-<?php
-//require_once "../controlador/controlador.usuarios.php";
-//Método para insertar un usuario en la base de datos
-if (isset($_POST["ingresar"])) {   //Se activa cuando el usuario da clic en el boton
-
-$datos = array(
-  $_POST["usuarios"],
-  $_POST["pass"]
-
-
-);
-
-//$insertar = ControladorUsuarios::contrInsertarUsuarios($datos);
-$ingresar = new ControladorUsuarios();
-$ingresar -> contrIngresarUsuarios($datos);
-
-
-}
-
-?>
-
-
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,14 +23,14 @@ $ingresar -> contrIngresarUsuarios($datos);
         <div class="col-sm-6 col-md-5 form-section">
             <div class="login-wrapper">
                 <h2 class="login-title">Iniciar Sesión</h2>
-                <form action="ingresar" method = "POST">
+                <form action="revisar_usuarios.php" method = "POST">
                     <div class="form-group"> 
                         <label for="email" class="sr-only">Email</label> 
-                        <input type="email" name="email" id="usuario" class="form-control" placeholder="Email">
+                        <input type="email" name='email' id="usuario" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group mb-3">
                         <label for="password" class="sr-only">Contraseña</label>
-                        <input type="password" name="pass" id="password" class="form-control" placeholder="Pass">
+                        <input type="password" name='pass' id="password" class="form-control" placeholder="Pass">
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-5">
                        <button name="ingresar" id="login" class="btn login-btn"> Ingresar </button> 

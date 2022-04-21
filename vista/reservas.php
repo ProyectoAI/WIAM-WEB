@@ -1,6 +1,84 @@
+<?php
+require_once "../controlador/controlador.reservas.php";
+
+// VALIDAR EL INICIO
+session_start();
+error_reporting(0);
+$varsesion=$_SESSION['email'];
+if ($varsesion==null||$varsesion=='') {
+    echo "<script>alert('No tiene acceso');</script>";
+    header('location:login.php');
+    die();
+}
+
+//Método para insertar un usuario en la base de datos
+if (isset($_POST["ingresar"])) {   //Se activa cuando el usuario da clic en el boton
+
+    $datos = array(
+      $_POST["nombre_reservante"],
+      $_POST["fecha_reserva"],
+      $_POST["hora_reserva"],
+      $_POST["N_mesa_reserva"],
+      $_POST["N_niños"],
+      $_POST["N_adultos"],
+      $_POST["telefono"]
+    );
+  
+    $insertar = ControladorReservas::contrInsertarReservas($datos);
+  
+  
+    if ($insertar == "ok") {
+      echo "<script>
+          alert('Reservas insertada correctamente...');
+         </script>";
+    }
+  
+    if ($insertar == "error") {
+      echo "<script>
+          alert('ERROR');
+         </script>";
+    }
+  }
+
+?>
+
+
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"> 
 </head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="https://samanthacmpn06.wixsite.com/misitio">"SDK"</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="vista/usuarios.php">Usuarios</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="vista/comida.php" aria-expanded="false">Comida</a>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/reservas.php">Reservas</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/registro.php">Registro</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/salir.php">Salir</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/productos/contenido.php">Añadir</a></li>
+
+
+                            
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        
+                    </form>
+                </div>
+            </div>
+        </nav>
+
 <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
@@ -9,62 +87,85 @@
                     <div class="form-header">
                         <h1>Reservaciones PLAY COOK</h1>
                     </div>
-                    <form>
-                        <div class="form-group"> <input class="form-control" type="text" placeholder="Nombre del Reservante"> <span class="form-label">Destination</span> </div>
+                    <form id="frmAgregar" role="form" method="POST" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" 
+                            name="nombre_reservante" placeholder="Nombre del Reservante" required autofocus> <span class="form-label">Nombre del usuario</span> 
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Check In</span> </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="date" 
+                                    name="fecha_reserva" required autofocus> <span class="form-label">Día Reserva</span>
+                                </div>
                             </div>
+
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label">Hora</span> </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="time"
+                                    name="hora_reserva" required autofocus> <span class="form-label">Hora</span>
                             </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
+                                <div class="form-group"> 
+                                    <select class="form-control" name="N_mesa_reserva" required>
                                         <option value="" selected hidden>N° mesas</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
                                        
 
                                     </select> <span class="select-arrow"></span> <span class="form-label">Sitios</span> </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
-                                        <option value="" selected hidden>N° adultos</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
+                                <div class="form-group">
+                                    <select class="form-control" name="N_niños" required>
+                                        <option value="" selected hidden>N° Niños</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
 
-
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Adultos</span> </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
-                                        <option value="" selected hidden>N° niños</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
 
                                     </select> <span class="select-arrow"></span> <span class="form-label">Niños</span> </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="tel" placeholder="Número de Teléfono"> <span class="form-label">Phone</span> </div>
+                            <div class="col-md-4">
+                                <div class="form-group"> 
+                                    <select class="form-control" name="N_adultos" required>
+                                        <option value="" selected hidden>N° Adultos </option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Adultos</span> </div>
                             </div>
                         </div>
-                        <div class="form-btn"> <button class="submit-btn">Reservar Ahora</button> </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> 
+                                    <input class="form-control" type="tel" 
+                                    name="telefono" placeholder="Número de Teléfono"> <span class="form-label">Phone</span> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-btn"> 
+                            <button class="submit-btn" type="submit" name="ingresar">Reservar Ahora</button> 
+                        </div>
                     </form>
                 </div>
             </div>
@@ -102,7 +203,7 @@
     margin: auto;
     padding: 40px;
     overflow: hidden;
-    background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/20/6b/15/91/caption.jpg');
+    background-image: url('https://i.pinimg.com/originals/b1/63/58/b16358b5e704a3a4c994ffb08673ba5a.jpg');
     background-size: cover;
     border-radius: 5px;
     z-index: 20
