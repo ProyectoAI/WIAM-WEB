@@ -56,11 +56,11 @@ if (isset($_POST["ingresar"])) {   //Se activa cuando el usuario da clic en el b
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="vista/usuarios.php">Usuarios</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="vista/comida.php" aria-expanded="false">Comida</a>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/reservas.php">Reservas</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/registro.php">Registro</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/salir.php">Salir</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="vista/productos/contenido.php">Añadir</a></li>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="../vista/comida.php" aria-expanded="false">Comida</a>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="../vista/reservas.php">Reservas</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="../vista/registro.php">Registro</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="../vista/salir.php">Salir</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="../vista/productos/contenido.php">Añadir</a></li>
 
 
                             

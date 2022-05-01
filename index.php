@@ -40,7 +40,7 @@ session_start();
     <body style="bg-primary">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-            <div class="container px-4 px-lg-5">
+            <div class="container px-4 px-lg-5"> 
                 <a class="navbar-brand" href="https://samanthacmpn06.wixsite.com/misitio">"SDK"</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -65,12 +65,16 @@ session_start();
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-primary py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
+        <header class="header">
+            <div class="container px-2 px-lg-3">
+                <div class="text-center text-black">
+                <br>
+                <br>
+                <br>
+                <br>
                     <h1 class="display-4 fw-bolder">PLAY COOK</h1> <em>
 
-                    <p class="lead fw-normal text-white-50 mb-0">Una experiencia inolvidable</p> <em>
+                    <p class="lead fw-normal text-black-50 mb-0">Una experiencia inolvidable</p> <em>
 
                 </div>
             </div>
@@ -97,7 +101,7 @@ session_start();
                 <div class="col-lg-4">
                   <div class="card">
                     <img
-                      src="http://1.bp.blogspot.com/_kX_0h2AtUOU/THriGS4rUGI/AAAAAAAAAK0/nNL4UeclmkI/s1600/Gallina+maggi_por+Andres.jpg" width="350" height="350" />
+                      src="reseña.jpg" width="350" height="350" />
                     
                     
 
@@ -108,15 +112,12 @@ session_start();
                   <div class="card">
 
                     <div class="card-body">
-                      <h5 class="card-title">RESEÑA HISTÓRICA</h5> 
-                      <p class="card-text" style="text-align:left">
-                      Adoro esos restaurantes que transmiten pasión en cada uno de sus platos. La cocina es creatividad e imaginación, pero creo que también requiere de mucha paciencia.
-
-Cuando yo cocino no siempre me salen bien los platos porque o  me adelanto  a los tiempos marcados o en  mitad de la receta  veo que tengo otros ingredientes y decido (en un acto anárquico) añadir este nuevo elemento y claro… no siempre acierto.
-
-Hace tiempo que no cocino recetas nuevas, hace tiempo que no escribo para Gastronews … la verdad es que estoy más concentrada ahora en mi trabajo en Hospiten , pero no quería dejar pasar la ocasión de escribir mi “crónica” gastronómica del nuevo restaurante que hemos descubierto en  Trevi, Umbria “la Cucina de San Pietro a Pettine”.
-
-Desde hace más de 15 años paso parte de las Navidades en Italia, adoro este país y adoro su gastronomía. Descubrir todo lo que cada región te ofrece es realmente conocer cada uno de los pequeños pueblos y tradiciones que hacen de Italia uno de los mejores destinos gastronómicos que conozco.
+                      <strong><p class="card-text" style="text-align:left"></strong>
+                      <h2><strong>PLAY COOK = VIDEOJUEGOS + EXQUISITA COMIDA + UNAS BUENAS BEBIDAS</strong></h2>
+                      <br>
+                      -Un lugar diferente pensado para gente diferente como tú, te invitamos a disfrutar de esta experiencia junto a nosotros, será un placer atenderte.
+                      Espacio de restauración interior - Terraza con calefacción.
+                      PLAY COOK es un BAR-RESTAURANTE, con servicio AMERICAN BAR y una temática GAMER, podrás encontrar un lugar nuevoy diferente, dónde no solo disfrutarás de nuestra gastronomía, podrás relajarte con un coctel o divertirte con un VIDEOJUEGO RETRO O ACTUAL  o un JUEGO DE MESA o una partida de FUTBOLIN, TÚ ELIGES, para nosotros será un placer atenderte. 
                       </p>
                     </div>
                   </div>
@@ -303,7 +304,13 @@ Desde hace más de 15 años paso parte de las Navidades en Italia, adoro este pa
 ?>
     </body>
 </html>
-
+<style>
+.header{
+  background-image:url("../img/lugar3.jpg");
+  width: auto;
+  height: 300px;
+}
+</style>
 
 
 
